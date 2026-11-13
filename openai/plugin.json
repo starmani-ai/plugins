@@ -1,0 +1,35 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "starmani",
+  "version": "0.2.1",
+  "description": "Calculate Vedic birth charts, dashas, compatibility and Panchang using StarMani.",
+  "author": { "name": "StarMani", "email": "StarMani.App@gmail.com", "url": "https://starmani.com" },
+  "homepage": "https://starmani.com/developers",
+  "repository": "https://github.com/starmani-ai/plugins",
+  "license": "MIT",
+  "keywords": ["astrology", "vedic", "starmani"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "StarMani",
+        "shortDescription": "Vedic charts, periods and calendar calculations",
+        "longDescription": "Calculate Vedic birth charts, planetary periods, compatibility and Panchang from supplied details. StarMani returns calculated data that your AI assistant can explain. Exact birth time and location matter for birth-based calculations.",
+        "developerName": "StarMani",
+        "category": "Lifestyle",
+        "capabilities": ["Calculate astrology charts", "Read planetary periods", "Check Panchang"],
+        "websiteURL": "https://starmani.com",
+        "supportURL": "https://github.com/starmani-ai/plugins/issues",
+        "privacyPolicyURL": "https://starmani.com/privacy",
+        "termsOfServiceURL": "https://starmani.com/terms",
+        "defaultPrompt": [
+          "Help me calculate my Vedic birth chart using StarMani.",
+          "Show the Vimshottari dasha running for my birth details on a date I choose.",
+          "Check Panchang details for a location and date."
+        ],
+        "brandColor": "#0D2044",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "starmani",
+  "displayName": "StarMani",
+  "version": "0.2.1",
+  "description": "Calculate Vedic charts, dashas, compatibility and Panchang using StarMani.",
+  "author": {
+    "name": "StarMani",
+    "email": "StarMani.App@gmail.com",
+    "url": "https://starmani.com"
+  },
+  "homepage": "https://starmani.com/developers",
+  "repository": "https://github.com/starmani-ai/plugins",
+  "license": "MIT",
+  "keywords": [
+    "astrology",
+    "vedic",
+    "starmani"
+  ],
+  "mcpServers": "./.mcp.json",
+  "icon": "./icon.png",
+  "documentationUrl": "https://starmani.com/developers",
+  "supportUrl": "https://github.com/starmani-ai/plugins/issues",
+  "privacyPolicyUrl": "https://starmani.com/privacy",
+  "termsOfServiceUrl": "https://starmani.com/terms"
+}

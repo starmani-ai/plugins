@@ -1,0 +1,13 @@
+node_modules/
+dist/
+vscode/out/
+*.vsix
+*.zip
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+.DS_Store
+Thumbs.db

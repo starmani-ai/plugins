@@ -1,0 +1,17 @@
+{
+  "name": "starmani-ai",
+  "owner": {
+    "name": "StarMani",
+    "email": "StarMani.App@gmail.com"
+  },
+  "metadata": {
+    "description": "StarMani plugins for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "starmani",
+      "source": "./claude/api-key",
+      "description": "StarMani's chart, timing, matching and calendar tools in Claude Code."
+    }
+  ]
+}

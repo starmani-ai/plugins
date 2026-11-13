@@ -1,0 +1,5 @@
+# Merge this section into your client config; do not overwrite existing config.
+# Set STARMANI_API_KEY in the environment of the process running Codex.
+[mcp_servers.starmani]
+url = "https://api.starmani.com/mcp"
+bearer_token_env_var = "STARMANI_API_KEY"

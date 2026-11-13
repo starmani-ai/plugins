@@ -1,0 +1,33 @@
+{
+  "name": "starmani-plugins",
+  "version": "0.2.1",
+  "private": true,
+  "description": "StarMani plugins and MCP connection packages",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "vscode"
+  ],
+  "overrides": {
+    "@vscode/vsce": {
+      "minimatch": "^11.0.1"
+    }
+  },
+  "scripts": {
+    "build": "npm run build --workspace vscode",
+    "validate": "node scripts/validate.mjs",
+    "test": "npm run build && node --test vscode/test/*.test.cjs",
+    "package": "npm run validate && npm run build && node scripts/package.mjs && npm run package --workspace vscode && node scripts/verify-artifacts.mjs && node scripts/checksums.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "1.106.0",
+    "@vscode/vsce": "4.1.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "jszip": "^3.10.1",
+    "typescript": "~5.9.3"
+  }
+}

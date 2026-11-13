@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "starmani": {
+      "type": "http",
+      "url": "https://api.starmani.com/mcp"
+    }
+  }
+}

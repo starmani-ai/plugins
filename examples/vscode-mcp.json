@@ -1,0 +1,17 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "starmaniKey",
+      "description": "StarMani API key (sm_live_...)",
+      "password": true
+    }
+  ],
+  "servers": {
+    "starmani": {
+      "type": "http",
+      "url": "https://api.starmani.com/mcp",
+      "headers": { "Authorization": "Bearer ${input:starmaniKey}" }
+    }
+  }
+}

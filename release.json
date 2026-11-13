@@ -1,0 +1,6 @@
+{
+  "version": "0.2.1",
+  "mcpUrl": "https://api.starmani.com/mcp",
+  "repository": "starmani-ai/plugins",
+  "registryName": "com.starmani/starmani"
+}
