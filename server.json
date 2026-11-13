@@ -3,7 +3,7 @@
   "name": "com.starmani/starmani",
   "title": "StarMani",
   "description": "Vedic astrology calculations: birth charts, dashas, transits, compatibility and Panchang.",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "websiteUrl": "https://starmani.com/developers",
   "repository": {
     "url": "https://github.com/starmani-ai/plugins",
@@ -21,25 +21,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://api.starmani.com/mcp",
-      "headers": [
-        {
-          "name": "Authorization",
-          "description": "Bearer followed by your StarMani API key (sm_live_...), from https://starmani.com/developers/keys",
-          "isRequired": true,
-          "isSecret": true,
-          "format": "string",
-          "value": "Bearer {api_key}",
-          "variables": {
-            "api_key": {
-              "description": "Your StarMani API key (starts with sm_live_)",
-              "isRequired": true,
-              "isSecret": true,
-              "format": "string"
-            }
-          }
-        }
-      ]
+      "url": "https://api.starmani.com/mcp"
     }
   ]
 }

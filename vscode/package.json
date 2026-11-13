@@ -2,12 +2,22 @@
   "name": "starmani",
   "displayName": "StarMani",
   "description": "Connect Vedic astrology tools to your AI agent using your StarMani account.",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "publisher": "starmani",
   "license": "MIT",
-  "engines": { "vscode": "^1.106.0" },
-  "categories": ["AI", "Other"],
-  "keywords": ["mcp", "astrology", "vedic", "starmani"],
+  "engines": {
+    "vscode": "^1.106.0"
+  },
+  "categories": [
+    "AI",
+    "Other"
+  ],
+  "keywords": [
+    "mcp",
+    "astrology",
+    "vedic",
+    "starmani"
+  ],
   "icon": "assets/icon.png",
   "homepage": "https://starmani.com",
   "repository": {
@@ -15,19 +25,41 @@
     "url": "https://github.com/starmani-ai/plugins.git",
     "directory": "vscode"
   },
-  "bugs": { "url": "https://github.com/starmani-ai/plugins/issues" },
+  "bugs": {
+    "url": "https://github.com/starmani-ai/plugins/issues"
+  },
   "main": "./out/extension.js",
-  "extensionKind": ["ui"],
-  "activationEvents": ["onMcpServerDefinitionProvider:starmani.mcp"],
-  "capabilities": { "untrustedWorkspaces": { "supported": true } },
+  "extensionKind": [
+    "ui"
+  ],
+  "activationEvents": [
+    "onMcpServerDefinitionProvider:starmani.mcp"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
   "contributes": {
     "commands": [
-      { "command": "starmani.setApiKey", "title": "StarMani: Connect with API Key" },
-      { "command": "starmani.disconnect", "title": "StarMani: Remove Saved API Key" },
-      { "command": "starmani.openAccount", "title": "StarMani: Open Account and API Keys" }
+      {
+        "command": "starmani.setApiKey",
+        "title": "StarMani: Connect with API Key"
+      },
+      {
+        "command": "starmani.disconnect",
+        "title": "StarMani: Remove Saved API Key"
+      },
+      {
+        "command": "starmani.openAccount",
+        "title": "StarMani: Open Account and API Keys"
+      }
     ],
     "mcpServerDefinitionProviders": [
-      { "id": "starmani.mcp", "label": "StarMani" }
+      {
+        "id": "starmani.mcp",
+        "label": "StarMani"
+      }
     ],
     "configuration": {
       "title": "StarMani",
@@ -44,6 +76,6 @@
   "scripts": {
     "build": "tsc -p .",
     "vscode:prepublish": "npm run build",
-    "package": "vsce package --no-dependencies --out ../dist/starmani-0.2.1.vsix"
+    "package": "vsce package --no-dependencies --out ../dist/starmani-0.3.0.vsix"
   }
 }

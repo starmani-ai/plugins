@@ -42,7 +42,8 @@ assert.equal(registry.name, release.registryName);
 assert.equal(registry.version, release.version);
 assert.ok(registry.description.length <= 100, 'Registry description over 100 characters');
 assert.deepEqual(registry.remotes.map(remote => remote.url), [release.mcpUrl]);
-assert.ok(registry.remotes[0].headers.every(header => header.isSecret && !/sm_live_/.test(header.value || '')));
+assert.ok(!registry.remotes[0].headers, 'Registry entry signs in; it must not ask for a header');
+assert.equal(read('.claude-plugin/marketplace.json').plugins.find(p => p.name === 'starmani').source, './claude/directory');
 assert.ok(!read('claude/directory/.mcp.json').mcpServers.starmani.headers);
 assert.ok(!read('openai/mcp.json').mcpServers.starmani.headers);
 

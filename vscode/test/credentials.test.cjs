@@ -97,10 +97,11 @@ test('key is stored in SecretStorage and attached only during resolution', async
   assert.equal(h.prompts(), 1);
 });
 
-test('cancelled credential prompt does not connect or store a key', async () => {
+test('without a saved key the server connects with no header so VS Code signs in', async () => {
   const h = harness();
   const resolved = await h.provider.resolveMcpServerDefinition(h.provider.provideMcpServerDefinitions()[0]);
-  assert.equal(resolved, undefined);
+  assert.equal(Object.keys(resolved.headers).length, 0);
+  assert.equal(h.prompts(), 0);
   assert.equal(h.values.size, 0);
 });
 
@@ -110,18 +111,18 @@ test('changing endpoint never forwards the previous endpoint credential', async 
   await h.commands.get('starmani.setApiKey')();
   const old = h.provider.provideMcpServerDefinitions()[0];
   h.endpoint('https://other.example/mcp');
-  h.answer(undefined);
   await assert.rejects(() => h.provider.resolveMcpServerDefinition(old), /endpoint changed/);
-  assert.equal(await h.provider.resolveMcpServerDefinition(h.provider.provideMcpServerDefinitions()[0]), undefined);
+  const resolved = await h.provider.resolveMcpServerDefinition(h.provider.provideMcpServerDefinitions()[0]);
+  assert.equal(resolved.headers.Authorization, undefined);
   assert.equal(h.values.size, 1);
 });
 
-test('removing saved credentials requires a new key on subsequent resolution', async () => {
+test('removing the saved key switches back to signing in', async () => {
   const h = harness();
   h.answer(key);
   await h.commands.get('starmani.setApiKey')();
   await h.commands.get('starmani.disconnect')();
   assert.equal(h.values.size, 0);
-  h.answer(undefined);
-  assert.equal(await h.provider.resolveMcpServerDefinition(h.provider.provideMcpServerDefinitions()[0]), undefined);
+  const resolved = await h.provider.resolveMcpServerDefinition(h.provider.provideMcpServerDefinitions()[0]);
+  assert.equal(resolved.headers.Authorization, undefined);
 });

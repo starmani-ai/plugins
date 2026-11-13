@@ -20,9 +20,9 @@ async function addDirectory(zip, directory, prefix = '') {
 }
 
 for (const [directory, output] of [
-  ['openai', `starmani-openai-${version}-draft.zip`],
+  ['openai', `starmani-openai-${version}.zip`],
   ['claude/api-key', `starmani-claude-api-key-${version}.zip`],
-  ['claude/directory', `starmani-claude-directory-${version}-draft.zip`]
+  ['claude/directory', `starmani-claude-directory-${version}.zip`]
 ]) {
   const zip = new JSZip();
   await addDirectory(zip, path.join(root, directory));
@@ -32,4 +32,3 @@ for (const [directory, output] of [
   await fs.writeFile(path.join(dist, output), await zip.generateAsync({ type: 'nodebuffer', compression: 'DEFLATE' }));
   console.log(`Prepared dist/${output}`);
 }
-console.log('Directory archives are drafts. Run npm run release:check before preparing a store submission.');

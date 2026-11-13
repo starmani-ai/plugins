@@ -1,34 +1,98 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "starmani",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Calculate Vedic birth charts, dashas, compatibility and Panchang using StarMani.",
-  "author": { "name": "StarMani", "email": "StarMani.App@gmail.com", "url": "https://starmani.com" },
+  "author": {
+    "name": "StarMani",
+    "email": "StarMani.App@gmail.com",
+    "url": "https://starmani.com"
+  },
   "homepage": "https://starmani.com/developers",
   "repository": "https://github.com/starmani-ai/plugins",
   "license": "MIT",
-  "keywords": ["astrology", "vedic", "starmani"],
+  "keywords": [
+    "astrology",
+    "vedic",
+    "starmani"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "StarMani",
-        "shortDescription": "Vedic charts, periods and calendar calculations",
-        "longDescription": "Calculate Vedic birth charts, planetary periods, compatibility and Panchang from supplied details. StarMani returns calculated data that your AI assistant can explain. Exact birth time and location matter for birth-based calculations.",
+        "shortDescription": "Vedic charts and timings",
+        "longDescription": "Calculate Vedic (Jyotish) birth charts, Vimshottari dasha periods, divisional charts, yogas, doshas, transits, Sade Sati, marriage compatibility and Panchang. StarMani returns calculated facts that ChatGPT explains in plain words. Sign in with your StarMani account the first time. Finding a place and checking your account are free; chart tools use StarMani credits. Exact birth time and place matter for birth-based results.",
         "developerName": "StarMani",
         "category": "Lifestyle",
-        "capabilities": ["Calculate astrology charts", "Read planetary periods", "Check Panchang"],
+        "capabilities": [
+          "Calculate Vedic birth charts",
+          "Read dasha periods for a date",
+          "Check transits and Sade Sati",
+          "Match two charts for marriage",
+          "Give Panchang and good days"
+        ],
         "websiteURL": "https://starmani.com",
         "supportURL": "https://github.com/starmani-ai/plugins/issues",
         "privacyPolicyURL": "https://starmani.com/privacy",
         "termsOfServiceURL": "https://starmani.com/terms",
         "defaultPrompt": [
-          "Help me calculate my Vedic birth chart using StarMani.",
-          "Show the Vimshottari dasha running for my birth details on a date I choose.",
-          "Check Panchang details for a location and date."
+          "Make my Vedic birth chart: 15 Aug 1990, 10:30 am, Chennai.",
+          "Which dasha am I running now, and when does it change?",
+          "What is today's Panchang in Chennai?"
         ],
         "brandColor": "#0D2044",
         "composerIcon": "./assets/icon.png",
         "logo": "./assets/icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Birth chart from date, time and place",
+              "prompt": "Make my Vedic birth chart for 15 August 1990, 10:30 am, Chennai, India.",
+              "tools_triggered": "search_place, get_birth_chart",
+              "expected_behavior": "Finds Chennai, then shows the ascendant and the nine planets with sign, house and nakshatra."
+            },
+            {
+              "description": "Running dasha periods",
+              "prompt": "For someone born 15 August 1990, 10:30 am in Chennai, which Vimshottari dasha is running today?",
+              "tools_triggered": "search_place, get_dasha",
+              "expected_behavior": "Names the running mahadasha and antardasha with their start and end dates."
+            },
+            {
+              "description": "Marriage compatibility",
+              "prompt": "Check marriage compatibility: bride born 3 March 1994, 6:15 am, Madurai; groom born 21 November 1991, 9:40 pm, Bengaluru.",
+              "tools_triggered": "search_place, get_compatibility",
+              "expected_behavior": "Gives the Porutham and Guna Milan results with each factor and the Mangal dosha of both."
+            },
+            {
+              "description": "Panchang for a day",
+              "prompt": "What is the Panchang in Chennai on 1 January 2027?",
+              "tools_triggered": "search_place, get_panchang",
+              "expected_behavior": "Lists tithi, nakshatra, yoga, karana, sunrise and sunset for that day in Chennai."
+            },
+            {
+              "description": "Good days in a range",
+              "prompt": "Find good days to start a new job in Chennai between 1 and 31 January 2027.",
+              "tools_triggered": "search_place, find_good_days",
+              "expected_behavior": "Returns a short list of suitable dates with the reason for each."
+            }
+          ],
+          "negative": [
+            {
+              "description": "General question with no calculation",
+              "prompt": "What is Vedic astrology?"
+            },
+            {
+              "description": "Unrelated task",
+              "prompt": "Book me a flight from Chennai to Delhi next Friday."
+            },
+            {
+              "description": "Western horoscope request",
+              "prompt": "Write me a fun daily horoscope for Leo."
+            }
+          ]
+        }
       }
     }
   }

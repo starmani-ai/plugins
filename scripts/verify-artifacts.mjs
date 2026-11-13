@@ -4,8 +4,8 @@ import JSZip from 'jszip';
 
 const dist = new URL('../dist/', import.meta.url);
 const version = JSON.parse(await fs.readFile(new URL('../release.json', import.meta.url), 'utf8')).version;
-const expected = [`starmani-openai-${version}-draft.zip`, `starmani-claude-api-key-${version}.zip`,
-  `starmani-claude-directory-${version}-draft.zip`, `starmani-${version}.vsix`];
+const expected = [`starmani-openai-${version}.zip`, `starmani-claude-api-key-${version}.zip`,
+  `starmani-claude-directory-${version}.zip`, `starmani-${version}.vsix`];
 for (const name of expected) {
   const zip = await JSZip.loadAsync(await fs.readFile(new URL(name, dist)));
   const files = Object.values(zip.files);

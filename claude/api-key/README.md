@@ -1,10 +1,12 @@
-# StarMani for Claude Code
+# StarMani for Claude Code (API key)
+
+For people who prefer a key to signing in. Most people should use `starmani@starmani-ai`, which signs in.
 
 StarMani's tools in Claude Code over MCP (`https://api.starmani.com/mcp`). You need a StarMani account and an API key from [starmani.com/developers/keys](https://starmani.com/developers/keys). Paid tools use that account's credits; account and place checks are free.
 
 ```sh
 claude plugin marketplace add starmani-ai/plugins
-claude plugin install starmani@starmani-ai
+claude plugin install starmani-api-key@starmani-ai
 ```
 
 When the plugin is switched on, Claude Code asks for your key, hides it as you type, and stores it in your system's secure credential store. To change it later, open `/plugin`, pick StarMani and reconfigure it.

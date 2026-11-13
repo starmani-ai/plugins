@@ -10,8 +10,13 @@
   "plugins": [
     {
       "name": "starmani",
+      "source": "./claude/directory",
+      "description": "StarMani's chart, timing, matching and calendar tools in Claude Code. Sign in with your StarMani account."
+    },
+    {
+      "name": "starmani-api-key",
       "source": "./claude/api-key",
-      "description": "StarMani's chart, timing, matching and calendar tools in Claude Code."
+      "description": "The same tools, connected with a StarMani API key instead of signing in."
     }
   ]
 }

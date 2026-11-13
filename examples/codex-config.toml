@@ -1,5 +1,8 @@
-# Merge this section into your client config; do not overwrite existing config.
-# Set STARMANI_API_KEY in the environment of the process running Codex.
+# Merge this section into ~/.codex/config.toml; do not overwrite existing config.
+# Then run: codex mcp login starmani   (opens starmani.com to sign in and approve)
 [mcp_servers.starmani]
 url = "https://api.starmani.com/mcp"
-bearer_token_env_var = "STARMANI_API_KEY"
+
+# Prefer an API key? Add this line instead of signing in, and set STARMANI_API_KEY
+# in the environment of the process running Codex:
+# bearer_token_env_var = "STARMANI_API_KEY"

@@ -68,9 +68,10 @@ export function activate(context: vscode.ExtensionContext): void {
         if (!(definition instanceof vscode.McpHttpServerDefinition) || definition.uri.toString() !== url) {
           throw new Error('StarMani endpoint changed. Refresh the MCP server before connecting.');
         }
-        const key = await context.secrets.get(secretId(url)) ?? await connect(url);
-        if (!key) { return undefined; }
-        return new vscode.McpHttpServerDefinition('StarMani', vscode.Uri.parse(url), { Authorization: `Bearer ${key}` }, '1');
+        // With a saved key, send it. Otherwise VS Code signs in to StarMani when the server asks.
+        const key = await context.secrets.get(secretId(url));
+        const headers: Record<string, string> = key ? { Authorization: `Bearer ${key}` } : {};
+        return new vscode.McpHttpServerDefinition('StarMani', vscode.Uri.parse(url), headers, '1');
       }
     })
   );
